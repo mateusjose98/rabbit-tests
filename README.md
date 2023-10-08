@@ -3,15 +3,21 @@
 ### Requisitos
 
 - Java 17
+- Lombok plugin
 - Docker
 - Configurar um SMTP para envio de email no arquivo resources do notification_ms
 
-### Arquitetura
+### Passos para rodar a aplicação
 
-### Endpoints de teste
+- Na pasta raiz, execute ```docker compose up``` para provisionar os containers do rabbitmq, do postgres e do mongodb.
+- Importe a pasta na sua IDE de preferência
+
+### Arquitetura
 
 O API Gateway está rodando em http://localhost:8085
 ![Arquitetura](Diagram.png)
+
+### Endpoints de teste
 
 - Realizando o pedido
 
@@ -47,3 +53,8 @@ curl -X POST -H "Content-Type: application/json" -d '{
 ```
 
 Repositório feitos para fins de estudo.
+
+### TODO
+
+- Transaction outbox
+- Refatorar as classes
