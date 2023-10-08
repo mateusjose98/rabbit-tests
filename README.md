@@ -19,7 +19,8 @@ O API Gateway está rodando em http://localhost:8085
 
 ### Endpoints de teste
 
-- Realizando o pedido
+- Realizando o pedido: ao realizar um pedido, fazemos o salvamento dos dados em uma base mongodb e enviamos um email de
+  confirmação de pedido.
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -39,7 +40,8 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
 ```
 
-- Realizando pagamento do pedido
+- Realizando pagamento do pedido: ao realizar o pagamento, salvamos as informações no banco postgres,
+  o pagante recebe um email de confirmação de pagamento e o status do pedido é atualizado na base mongo.
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{
