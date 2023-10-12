@@ -28,3 +28,20 @@ services:
       - 5672:5672
       - 25676:25676
       - 15672:15672
+  token-redis:
+    container_name: token-redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  auth-db:
+    image: postgres:11
+    container_name: auth-db
+    restart: always
+    environment:
+      - POSTGRES_DB=db_user
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    ports:
+      - 5430:5432
+    volumes:
+      - ./data/postgres-auth:/var/lib/postgresql/data

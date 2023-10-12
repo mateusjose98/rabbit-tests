@@ -6,6 +6,10 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: auth_ms
+          uri: http://localhost:9090
+          predicates:
+            - Path=/auth/**
         - id: order_ms
           uri: http://localhost:8081
           predicates:
